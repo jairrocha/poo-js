@@ -4,16 +4,6 @@ export class ContaCorrente{
     agencia;
     _cliente;
 
-    set cliente(novoValor){
-        if (novoValor instanceof Cliente) {
-            
-            this._cliente = novoValor;
-        }
-    }
-
-    get cliente(){
-        return this._cliente;
-    }
 
     /*O '#' Deixa o campo privado, não funciona em todas a 
     ferramentas (Não formalizado pela comunidade 
@@ -30,10 +20,10 @@ export class ContaCorrente{
     _saldo = 0; /*é obrigratório inicializar campos númericos*/
 
 
-    get saldo(){
-        return this._saldo;
+    constructor(cliente, agencia){
+        this._cliente = cliente;
+        this.agencia = agencia;
     }
-
 
     Sacar(valor){
         if (this._saldo >= valor) {
@@ -53,5 +43,21 @@ export class ContaCorrente{
     Transferir(valor, conta){
         const valorSacado = this.Sacar(valor);
         conta.Depositar(valorSacado);
+    }
+
+    
+    set cliente(novoValor){
+        if (novoValor instanceof Cliente) {
+            
+            this._cliente = novoValor;
+        }
+    }
+
+    get cliente(){
+        return this._cliente;
+    }
+
+    get saldo(){
+        return this._saldo;
     }
 }
