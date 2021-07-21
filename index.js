@@ -18,3 +18,5 @@ conta1.Transferir(500, conta2);
 
 console.log(conta1);
 console.log(conta2);
+
+console.log(ContaCorrente.numeroDeContas);
