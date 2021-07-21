@@ -1,7 +1,19 @@
+import { Cliente } from "./Cliente.js";
 
 export class ContaCorrente{
     agencia;
-    cliente;
+    _cliente;
+
+    set cliente(novoValor){
+        if (novoValor instanceof Cliente) {
+            
+            this._cliente = novoValor;
+        }
+    }
+
+    get cliente(){
+        return this._cliente;
+    }
 
     /*O '#' Deixa o campo privado, não funciona em todas a 
     ferramentas (Não formalizado pela comunidade 
@@ -16,6 +28,11 @@ export class ContaCorrente{
     comunidade (recomendável colocar em produção dessa maneira))*/    
     
     _saldo = 0; /*é obrigratório inicializar campos númericos*/
+
+
+    get saldo(){
+        return this._saldo;
+    }
 
 
     Sacar(valor){

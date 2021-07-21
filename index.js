@@ -19,6 +19,7 @@ const valorSacado = conta2.Sacar(10);
 const conta1 = new ContaCorrente();
 conta1.agencia = 1001;
 conta1.cliente = cliente1;
+// conta1.cliente = 0;
 conta1.Depositar(1000);
 conta1.Transferir(500, conta2);
 
