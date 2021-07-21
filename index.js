@@ -10,21 +10,18 @@ const cliente2 = new Cliente();
 cliente2.nome = "Lidiane";
 cliente2.cpf = 4568;
 
-const contaCorrenteCliente1 = new ContaCorrente();
+const conta2 = new ContaCorrente();
+conta2.agencia = 1002;
+conta2.cliente = cliente2;
+conta2.Depositar(100);
+const valorSacado = conta2.Sacar(10);
 
-/*Trava a edição do atributo*/
-//contaCorrenteCliente1.#saldo = 10000;
-
-/*Cuidado: permite edição não atribuir com possuir o '_'*/
-//_saldo = 1000; 
-
-/*Cuidado o js cria atributos caso eles não existam */
-//contaCorrenteCliente1.quaquerCoisa = 10000;
-                                            
-contaCorrenteCliente1.agencia = 1001;
-contaCorrenteCliente1.Depositar(1000);
-const valorSacado = contaCorrenteCliente1.Sacar(10);
+const conta1 = new ContaCorrente();
+conta1.agencia = 1001;
+conta1.cliente = cliente1;
+conta1.Depositar(1000);
+conta1.Transferir(500, conta2);
 
 
-console.log(cliente1, contaCorrenteCliente1);
-console.log(valorSacado);
+console.log(conta1);
+console.log(conta2);

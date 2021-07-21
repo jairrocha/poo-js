@@ -1,6 +1,7 @@
 
 export class ContaCorrente{
     agencia;
+    cliente;
 
     /*O '#' Deixa o campo privado, não funciona em todas a 
     ferramentas (Não formalizado pela comunidade 
@@ -16,6 +17,7 @@ export class ContaCorrente{
     
     _saldo = 0; /*é obrigratório inicializar campos númericos*/
 
+
     Sacar(valor){
         if (this._saldo >= valor) {
             this._saldo -= valor;
@@ -26,8 +28,13 @@ export class ContaCorrente{
     }
 
     Depositar(valor){
-        if (valor > 0 ) return;
+        if (valor < 0 ) return;
 
         this._saldo+=valor;
+    }
+
+    Transferir(valor, conta){
+        const valorSacado = this.Sacar(valor);
+        conta.Depositar(valorSacado);
     }
 }
